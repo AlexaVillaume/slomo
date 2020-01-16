@@ -13,10 +13,10 @@ setup(
     description="Jeans models for slow-rotator galaxies",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/adwasser/Slomo.jl",
+    url="https://github.com/adwasser/slomo",
     install_requires=["julia"],
     setup_requires=["setuptools_scm"],
     use_scm_version=True,
-    packages=find_packages(),
+    packages=["slomo"],
     include_package_data=True,
 )

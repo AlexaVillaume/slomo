@@ -1,5 +1,3 @@
-include Project.toml
 include LICENSE
 include README.md
-recursive-include src *.jl
-recurvsive-include test *
+recursive-include Slomo.jl/*

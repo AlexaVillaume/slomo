@@ -1,0 +1,3 @@
+[submodule "Slomo.jl"]
+	path = Slomo.jl
+	url = https://github.com/adwasser/Slomo.jl

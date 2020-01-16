@@ -1,5 +1,5 @@
 # slomo
 
-Python bindings for [Slomo.jl](github.com/adwasser/Slomo.jl)
+Python bindings for [Slomo.jl](https://github.com/adwasser/Slomo.jl)
 
 
