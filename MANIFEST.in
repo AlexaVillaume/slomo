@@ -1,3 +1,5 @@
 include LICENSE
 include README.md
-recursive-include Slomo.jl/*
+include slomo/Slomo.jl/build/*.so
+recursive-include slomo/Slomo.jl *.jl
+

@@ -17,6 +17,7 @@ setup(
     install_requires=["julia"],
     setup_requires=["setuptools_scm"],
     use_scm_version=True,
-    packages=["slomo"],
+    packages=find_packages(),
+    # package_data = {"slomo": ["Slomo.jl/*"]},
     include_package_data=True,
 )
