@@ -1,10 +1,17 @@
+from os import path
 from julia import Julia
 
 def get_sysimage():
-    return "/home/asher/work/software/Slomo.jl/build/sys.so"
+    here = path.abspath(path.dirname(__file__))
+    built_sysimage = path.join(here, "Slomo.jl", "build", "sys.so")
+    if path.isfile(built_sysimage):
+        return built_sysimage
+    return None
 
 def get_env():
-    return "/home/asher/work/software/Slomo.jl"
+    here = path.abspath(path.dirname(__file__))
+    env = path.join(here, "Slomo.jl")
+    return env
 
 jl = Julia(sysimage=get_sysimage())
 jl.eval("import Pkg; Pkg.activate(\"{}\")".format(get_env()))
