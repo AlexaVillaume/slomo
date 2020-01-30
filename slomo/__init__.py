@@ -16,6 +16,9 @@ def get_env():
 jl = Julia(sysimage=get_sysimage())
 jl.eval("import Pkg; Pkg.activate(\"{}\")".format(get_env()))
 
+def get_nthreads():
+    return jl.eval("Threads.nthreads()")
+
 from julia import Slomo as slomo
 from julia.Slomo import *
 

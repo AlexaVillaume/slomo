@@ -66,9 +66,29 @@ If all goes well, you should be able to do the following from a Python shell:
 ```python
 import numpy as np
 from slomo import *
-model = JeansModel(NFWModel(), SersicModel(), ConstantBetaModel())
+model = JeansModel(halos.NFWModel(), SersicModel(), ConstantBetaModel())
 R = np.logspace(-1, 1)
 sigma_profile = sigma_los(model, R)
 ```
 
 The first call of `sigma_los` will be incredibly slow due to the JIT compilation from Julia; subsequent calls should be much faster.
+
+## Multi-threading
+
+To set up [multi-threading with Julia](https://docs.julialang.org/en/v1/manual/parallel-computing/#man-multithreading-1), set the `JULIA_NUM_THREADS` environmental variable to the desired number of threads prior to importing `slomo`, e.g. for `bash`
+
+```shell
+export JULIA_NUM_THREADS=4
+```
+
+To do the Jeans integration for a single model structure with multiple parameter sets, pass a list of dictionaries to `sigma_los_parallel`, where each dictionary contains parameter updates for the model.
+
+```python
+parameter_sets = [
+	dict(beta=0.5, Re=12.3),
+	dict(beta=0.1, Re=12.3),
+	dict(beta=0.5, Re=10.9),
+	dict(beta=0.1, Re=10.9)
+]
+sigma_profiles = sigma_los_parallel(model, R, parameter_sets)
+```
