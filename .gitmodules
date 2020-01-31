@@ -1,3 +1,3 @@
 [submodule "slomo/Slomo.jl"]
 	path = slomo/Slomo.jl
-	url = git@github.com:adwasser/Slomo.jl.git
+	url = https://github.com/adwasser/Slomo.jl.git
